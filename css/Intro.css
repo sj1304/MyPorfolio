@@ -1,0 +1,381 @@
+#intro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   min-height:530px; 
+    margin:5px 150px; 
+    box-shadow: 3px 3px 8px grey;
+    border:1px solid #d49e176a;
+}
+
+.left_intro {
+    background-color: #EFE7DA;
+    padding: 70px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+   flex:1;
+   
+    color:#383636;
+}
+
+.profile_pic {
+    min-height:285px ;    
+    width: 300px;
+    height: 285px;  
+    border-radius: 50%;
+        object-fit: cover;  
+}
+
+.right_intro {
+    padding: 70px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1.5;
+    min-width: 0;
+    color:#313030;
+}
+
+
+.right_intro p {
+    font-size: 18px;
+ min-height: 4.0em; 
+        animation-delay: 0.3s;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.buttons{
+    padding: 30px 0px;
+    display: flex;
+    gap: 30px;
+    
+     
+}
+
+.buttons button a{
+    text-decoration: none;
+    color:white;
+    
+    
+}
+
+.buttons button{
+    display:flex;
+    gap:5px;
+    padding: 10px 20px;
+    animation-delay: 0.3s;
+    justify-content: center;
+}
+
+.download{
+    
+    color: #333;
+    text-decoration: none;  
+    background-color:white;
+    
+}
+
+.buttons button:hover {
+    
+    cursor:pointer;
+}
+
+.download:hover{
+    background-color: #333;
+    color:white;
+}
+
+.right_intro p,
+.buttons {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+h2{
+    animation-delay: 0.5s;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.0s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.left_intro {
+    position: relative;
+}
+
+.terminal-box {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+
+    background: #1e1e1e;
+    color: #e6e6e6;
+
+    padding: 12px 14px;
+    border-radius: 10px;
+    width: 200px;
+
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+    font-family: monospace;
+    animation-delay: 5s;
+}
+
+.terminal-header {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+    animation-name: fadeIn;
+    animation-delay: 5s;
+
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.terminal-container {
+    position: absolute;
+    top: 0px;   
+    left: 0px;   
+}
+.dot {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+
+
+.dot.small {
+    width: 6px;
+    height: 6px;
+    top: 120px;
+    left: 200px;
+}
+
+.dot.medium {
+    width: 10px;
+    height: 10px;
+  top: 106px;
+    left: 207px;
+}
+
+.dot.large {
+    width: 14px;
+    height: 14px;
+    top: 90px;
+    left: 215px;
+}
+
+@media (max-width: 480px) {
+    .left_intro {
+        padding: 30px 15px;
+        
+    }
+
+    .right_intro {
+        padding: 30px 15px;
+    }
+
+    .right_intro p {
+        font-size: 16px;
+        min-height: auto;
+    }
+
+    .profile_pic {
+        width: 180px;
+        height: 180px;
+        min-height: 180px;
+    }
+
+    .terminal-box {
+         position: absolute;
+        top: 0;
+        left: 20px;
+        width: 160px;
+        padding: 10px 12px;
+    }
+
+    .terminal-container {
+        position:absolute;
+        display: flex;
+        justify-content: center;
+    }
+
+    .terminal-text {
+        font-size: 12px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .buttons button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    
+    
+
+
+}
+
+@media (max-width: 768px) {
+    #intro {
+        flex-direction: column;
+        min-height: auto;
+        margin:0 0;
+    }
+
+    .left_intro {
+        padding:20px 20px 10px;
+        gap:2px;
+        min-height:310px;
+    }
+
+    .right_intro {
+        padding: 5px 10px 0px;
+        flex: 1;
+        gap:0px;
+        min-height:370px;
+    }
+
+    .profile_pic {
+        width: 220px;
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .terminal-box {
+        position: absolute;
+        left: 160px;
+        
+        width: 120px;
+    }
+
+    .terminal-container {
+        position:absolute;
+        display: flex;
+        justify-content: center;
+    }
+    
+    h1{
+        font-size:23px;
+    }
+
+h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+.dot{
+    display:none;
+}
+
+.right_intro p{
+    font-size: 1.0rem;
+}
+
+.buttons {
+     flex-wrap: wrap;   
+        gap: 15px;
+}
+}
+
+.name-section {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* NAME */
+.name-section h2 {
+  color: #d4a017;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* LINE + SYMBOL */
+.name-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.name-decoration span {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #d4a017;
+}
+
+/* DIAMOND SHAPE */
+.diamond {
+  width: 8px;
+  height: 8px;
+  background: #d4a017;
+  transform: rotate(45deg);
+}
+
+.mywork{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    width:150px;
+    background-color: grey;
+    transition: 0.2s;
+}
+
+.mywork:hover{
+    border:2px solid black;
+    box-shadow: 5px solid rgb(57, 56, 56);
+}
+
+#dark .left_intro{
+    background: #181818;
+}
