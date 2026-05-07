@@ -1,0 +1,192 @@
+/* 🌿 MAIN CONTAINER */
+.github-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height:auto;
+  flex-wrap: wrap;
+}
+
+.github-card {
+  width: 2000px;
+  max-width: 950px;
+  padding:40px 60px;
+  border-radius: 24px;
+  background: rgba(250, 250, 250, 0.666);
+  backdrop-filter: blur(12px);
+  box-shadow: 12px 15px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border:1px solid #d4a017;
+}
+
+.github-title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 🔥 MAIN LAYOUT (GRAPH + STATS) */
+.github-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin:50px;
+}
+
+/* 📊 GRAPH */
+.github-calendar {
+  flex: 2;
+  min-width:300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 10px;
+ 
+}
+
+
+
+/* scrollbar (optional) */
+.github-calendar::-webkit-scrollbar {
+  height: 6px;
+}
+.github-calendar::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* 📦 STATS */
+.github-stats {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* 💎 STAT BOX */
+.stat-box {
+  width: 180px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #EFE7DA;
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+.stat-box:hover {
+  border:3px solid #d4a017;
+  
+  transform: translate(-1px);
+}
+
+/* 🔢 STAT NUMBER */
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* 🏷️ STAT LABEL */
+.stat-label {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+/* 🧠 LANGUAGE SECTION */
+.language-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.github-subtitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* 🧾 LANGUAGE LIST */
+.language-list {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* 🟡 LANGUAGE PILLS */
+.language-item {
+  background: linear-gradient(135deg, #EFE7DA, #f5f0e6);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.language-item:hover {
+  background: #d4a017;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ⏳ LOADING */
+.loading {
+  font-size: 17px;
+  color: #777;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+
+  .github-card {
+  width: 300px;
+  padding: 20px 30px;
+  
+}
+
+.github-calendar {
+  flex: 1;
+  min-width:120px;
+  height: 200px;
+ 
+}
+  .github-main {
+    flex-direction: column;
+    align-items: center;
+  margin:0;
+  }
+
+  .github-stats {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .stat-box {
+    width: auto;
+    padding: 14px;
+    
+  }
+
+  .github-container{
+    width:auto;
+  }
+  .stat-label {
+  font-size: 17px;  
+}
+
+.stat-number{
+  font-size: 20px;
+}
+.language-list{
+ width:auto;
+ font-size: 20px;
+}
+}
