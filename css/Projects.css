@@ -34,17 +34,17 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 5px;
   
 }
 
 /* BOX */
 .flow-box {
-  width: 300px;
-  height: 230px;
-  background: white;
+  width: 340px;
+  height: 270px;
+  background: #efeaeae4;
   border-radius: 12px;
-  padding: 10px;
+  padding: 5px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@
 .flow-box img {
   width: 100%;
   height: 65%;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 8px;
   border: 1px solid #00000068;
 }
@@ -98,3 +98,34 @@
   }
 }
 
+
+.prbuttons{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+}
+
+
+
+.prbuttons button{
+    padding: 10px 40px;
+ border-radius: 7px;
+ font-size: 16px;
+ transition: all 0.4s ease;
+}
+
+@media (max-width: 768px){
+    .projects h2{
+        font-size: 30px;
+    }
+
+    .flow-box{
+       height:250px;
+        font-size: 18px;
+    }
+     
+    .prbuttons{
+  font-size: 13px;
+    }
+}
