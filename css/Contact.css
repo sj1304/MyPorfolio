@@ -1,0 +1,42 @@
+.contact-section{
+  
+  text-align: center;
+}
+
+
+
+.contact-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.contact-card{
+  width: 180px;
+  padding: 22px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  background: #141414;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-card i{
+  font-size: 34px;
+}
+
+.contact-card span{
+  font-size: 18px;
+}
+
+.contact-card:hover{
+  transform: translateY(-8px) scale(1.03);
+}
