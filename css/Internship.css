@@ -1,0 +1,202 @@
+.portfolio-wrapper {
+  width: 65%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0px 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 35px;
+  color: #373736;
+  text-align: center;
+  margin:5px;
+}
+
+/* SLIDER CONTAINER */
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* CARDS ROW */
+.cards-slider {
+  display: flex;
+  gap: 25px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.cards-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.exp-card,
+.cert-card {
+  min-width: 345px;
+  max-width: 350px;
+
+  background: #efeaeae4;
+  border: 1px solid #a29b87;
+
+  border-radius: 22px;
+  padding: 30px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  flex-shrink: 0;
+}
+
+/*Dark theme*/
+#dark 
+.exp-card,
+.cert-card {
+  min-width: 345px;
+  max-width: 350px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid #a29b8752;
+
+  border-radius: 22px;
+  padding: 30px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(31, 31, 31, 0.2);
+
+  flex-shrink: 0;
+}
+
+#dark .exp-card:hover,#dark .cert-card:hover {
+border: 1px solid #a29b878e;
+box-shadow: 0 10px 25px rgba(139, 138, 138, 0.211);
+}
+
+#dark 
+.exp-card h3,
+#dark
+.cert-card h3 {
+  color: rgb(156, 156, 156);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+#dark 
+.exp-card p,
+#dark 
+.cert-card p {
+  color: #a4a0a0;
+  margin-bottom: 15px;
+}
+
+#dark .section-title{
+  color: #c7c5c5;
+}
+
+.exp-card ul {
+  padding-left: 18px;
+  margin-bottom: 18px;
+}
+
+.exp-card:hover,
+.cert-card:hover {
+  box-shadow: 0 10px 25px rgba(69, 62, 25, 0.375);
+  border: 1px solid #a18c58;
+}
+
+.exp-card h3,
+.cert-card h3 {
+  color: rgb(53, 52, 52);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.exp-card p,
+.cert-card p {
+  color: #4e4c4c;
+  margin-bottom: 15px;
+}
+
+.exp-card ul {
+  padding-left: 18px;
+  margin-bottom: 18px;
+}
+
+.exp-card li {
+  color: #e5e5e5;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* BUTTON */
+.exp-card button,
+.cert-card button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+
+  background: #d4a017;
+  color: rgb(247, 241, 241);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.exp-card button:hover,
+.cert-card button:hover {
+  transform: scale(1.05);
+}
+
+/* RIGHT ARROW */
+.intern-next-btn {
+  position: absolute;
+  right: -20px;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: linear-gradient(135deg, #d4a017, #f5d76e);
+  color: rgb(246, 240, 240);
+
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.intern-next-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(212, 160, 23, 0.6);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .exp-card,
+  .cert-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .next-btn {
+    width: 45px;
+    height: 45px;
+    right: -10px;
+  }
+}
