@@ -2,14 +2,15 @@ import '../css/Nav.css';
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-function Navbar({theme,setTheme}) {
+function Navbar({ theme, setTheme }) {
   const pathRef = useRef(null);
   const ulRef = useRef(null);
+  const svgRef = useRef(null);
 
+  const toggleTheme = () => {
+    setTheme(prev => (prev === "light" ? "dark" : "light"));
+  };
 
-const toggleTheme = () => {
-  setTheme(prev => (prev === "light" ? "dark" : "light"));
-};
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -31,27 +32,71 @@ const toggleTheme = () => {
 
     const updatePath = () => {
       const items = ul.querySelectorAll("li");
+      const svg = svgRef.current;
+
+      if (!svg || items.length === 0) return;
+
+      const ulRect = ul.getBoundingClientRect();
+
+      // SVG exactly over UL
+      svg.style.left = `${ulRect.left}px`;
+      svg.style.top = `${ulRect.top}px`;
+      svg.style.width = `${ulRect.width}px`;
+      svg.style.height = `${ulRect.height}px`;
+
+      svg.setAttribute(
+        "viewBox",
+        `0 0 ${ulRect.width} ${ulRect.height}`
+      );
 
       let d = "";
 
+      let prevX = 0;
+      let prevY = 0;
+
       items.forEach((item, index) => {
         const link = item.querySelector("a");
-        if (!link) return; // 🔥 safety
+        if (!link) return;
 
-        const x = link.offsetLeft + link.offsetWidth / 2;
-        const y = index % 2 === 0 ? 25 : 35;
+        const rect = link.getBoundingClientRect();
 
-        if (d === "") {
-          d += `M 0 ${y} L ${x} ${y}`;
+        // exact center relative to UL
+        const x =
+          rect.left - ulRect.left - rect.width/4;
+
+        const y =
+          rect.top - ulRect.top + rect.height/2;
+
+        // crooked line effect
+        const crookedY =
+          index % 2 === 0 ? y+40 : y+30 ;
+
+        if (index === 0) {
+          // starts EXACTLY from first li
+          d += `M ${x} ${crookedY}`;
         } else {
-          d += ` L ${x} ${y}`;
+          const midX =
+  (prevX + x) / 2 +
+  (index % 2 === 0 ? 0 : -30);
+
+          d += `
+            C
+            ${midX} ${prevY},
+            ${midX} ${crookedY},
+            ${x} ${crookedY}
+          `;
         }
+
+        prevX = x;
+        prevY = crookedY;
       });
 
       path.setAttribute("d", d);
 
       pathLength = path.getTotalLength();
+
       path.style.strokeDasharray = pathLength;
+      path.style.strokeDashoffset = pathLength;
     };
 
     const handleScroll = () => {
@@ -61,13 +106,45 @@ const toggleTheme = () => {
 
       sections.forEach((id) => {
         const section = document.getElementById(id);
+
         if (section && scrollY >= section.offsetTop) {
           completed++;
         }
       });
 
       const progress = completed / sections.length;
-      path.style.strokeDashoffset = pathLength * (1 - progress);
+
+      path.style.strokeDashoffset =
+        pathLength * (1 - progress);
+
+      // glowing contact
+      const contactLi =
+        document.querySelector(".contact-li");
+      
+      if (completed >= 5) {
+        
+path.style.opacity = "0";
+        setTimeout(() => {
+        contactLi?.classList.add("contact-glow");
+  
+  document.querySelectorAll(".sparkle")
+  .forEach((sparkle) => {
+    sparkle.style.visibility = "visible";
+  });
+}, 500);
+      } else {
+        path.style.opacity = "1";
+         setTimeout(() => {
+          contactLi?.classList.remove("contact-glow");
+  
+  document.querySelectorAll(".sparkle")
+  .forEach((sparkle) => {
+    sparkle.style.visibility = "hidden";
+  });
+}, 500);
+      
+        
+      }
     };
 
     updatePath();
@@ -85,40 +162,71 @@ const toggleTheme = () => {
   return (
     <nav className="navbar" id={theme}>
 
-      <div className="logo"><button className="theme-btn" onClick={toggleTheme}>
-    {theme === "light" ? "🌙" : "☀️"}
-  </button> Sneha Jadhav  </div>
+      <div className="logo">
+        <button
+          className="theme-btn"
+          onClick={toggleTheme}
+        >
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
+
+        Sneha Jadhav
+      </div>
 
       {/* 🔥 Hamburger */}
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         {menuOpen ? <X size={24} /> : <Menu size={24} />}
       </div>
 
       {/* 🔥 Nav List */}
-      <ul className={`nav-list ${menuOpen ? "open" : ""}`} ref={ulRef}>
-        <li><a href="#introduction">Who am I?</a></li>
-        <li><a href="#skillss">What can I do?</a></li>
-        <li><a href="#projects">What have I built?</a></li>
-        <li><a href="#github">How consistent am I?</a></li>
-        <li><a href="#experience_education">Where did I learn?</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      
-
-      {/* 🔥 Arrow (hide on mobile) */}
-       <svg
-        className="nav-arrow"
-        viewBox="0 0 1000 60"
-        preserveAspectRatio="none"
+      <ul
+        className={`nav-list ${menuOpen ? "open" : ""}`}
+        ref={ulRef}
       >
-        <defs>
-          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#D4A017" />
-            <stop offset="100%" stopColor="#D4A017" />
-          </linearGradient>
-        </defs>
+        <li>
+          <a href="#introduction">Who am I?</a>
+        </li>
 
-        <path ref={pathRef} id="arrowPath" />
+        <li>
+          <a href="#skillss">What can I do?</a>
+        </li>
+
+        <li>
+          <a href="#projects">What have I built?</a>
+        </li>
+
+        <li>
+          <a href="#github">How consistent am I?</a>
+        </li>
+
+        <li>
+          <a href="#experience_education">
+            Where/What did I learn?
+          </a>
+        </li>
+
+        <li className="contact-li">
+  <a href="#contact">
+    Contact
+    <span className="sparkle s1">✦</span>
+    <span className="sparkle s2">✦</span>
+    <span className="sparkle s3">✦</span>
+  </a>
+</li>
+      </ul>
+
+      {/* 🔥 Arrow */}
+      <svg
+        className="nav-arrow"
+        ref={svgRef}
+      >
+        <path
+          ref={pathRef}
+          id="arrowPath"
+        />
       </svg>
 
     </nav>
@@ -126,5 +234,3 @@ const toggleTheme = () => {
 }
 
 export default Navbar;
-
-
