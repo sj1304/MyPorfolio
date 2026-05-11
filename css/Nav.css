@@ -35,7 +35,8 @@ position:sticky;
 .nav-list {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  gap:30px;
+  justify-content: end;
   width: 70%;
   margin: 0;
   padding: 0;
@@ -43,7 +44,7 @@ position:sticky;
 }
 
 .nav-list li {
-  flex: 1;
+  
   text-align: center;
 }
 
@@ -55,6 +56,9 @@ position:sticky;
   transition: 0.3s;
 }
 
+li a{
+  text-decoration: none;
+}
 .nav-list li a::after {
   content: "";
   position: absolute;
@@ -66,7 +70,7 @@ position:sticky;
   transition: 0.3s;
 }
 
-.nav-list li a:hover::after {
+.nav-list li a:hover {
   width: 100%;
 }
 
@@ -78,20 +82,100 @@ a:active {
   color: #D4A017;
 }
 
-.nav-arrow {
-  position: absolute;
-  bottom: -25px;
-  left: 30%;
-  width: 70%;
-  height: 60px;
-  pointer-events: none;
+.nav-list{
+  position: relative;
 }
 
-#arrowPath {
+.nav-arrow{
+  position: fixed;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+}
+
+#arrowPath{
   fill: none;
-  stroke: url(#arrowGradient);
-  stroke-width: 3;
+  stroke: #D4A017;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px #D4A017);
   transition: stroke-dashoffset 0.4s ease;
+  opacity: 4s ease,
+}
+
+.contact-glow a{
+  animation: contactPulse 1.2s infinite ease;
+  animation-delay: 0s ease;
+}
+
+#dark > ul > .contact-li  a{
+  font-size: 20px;
+  color:#5d5c5c;
+}
+.contact-li a{
+  position: relative;
+}
+
+.sparkle{
+  position: absolute;
+  color: #D4A017;
+  font-size: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  animation: sparkleFloat 3s infinite ease-in-out;
+}
+
+.s1{
+  top: -8px;
+  left: -10px;
+  animation-delay: 0s;
+}
+
+.s2{
+  top: -12px;
+  right: -8px;
+  animation-delay: 0.7s;
+}
+
+.s3{
+  top:30px;
+  right: 20px;
+  animation-delay: 1.4s;
+}
+
+@keyframes sparkleFloat{
+  0%{
+    
+    opacity: 0;
+    transform: scale(0.5) translateY(4px);
+  }
+
+  50%{
+    opacity: 1;
+    transform: scale(1.2) translateY(-4px);
+    text-shadow:
+      0 0 8px #D4A017,
+      0 0 14px #D4A017;
+  }
+
+  100%{
+    opacity: 0;
+    transform: scale(0.5) translateY(-8px);
+  }
+}
+@keyframes contactPulse{
+  from{
+   color:white;
+    text-shadow: none;
+  }
+
+  to{
+    
+    color: #D4A017;
+    text-shadow:
+      0 0 8px #D4A017,
+      0 0 18px #D4A017;
+  }
 }
 
 .hamburger {
