@@ -1,8 +1,8 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 60px;
+  justify-content: space-around;
+  
+  padding:20px 0 10px;
   background: #EFE7DA;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   position: relative;
@@ -24,18 +24,18 @@ position:sticky;
   font-family: 'Great Vibes', cursive;
   transform: scaleX(1.2);
   letter-spacing: 2px;
-  font-size: 30px;
+  font-size: 26px;
   color: #2C2C2C;
   font-weight: 700;
   display: flex;
-  gap: 20px;
-  
+  gap: 5px;
+  padding-left:5px; 
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap:30px;
+  gap:15px;
   justify-content: end;
   width: 70%;
   margin: 0;
@@ -50,67 +50,52 @@ position:sticky;
 
 .nav-list li a {
   text-decoration: none;
-  color: #2C2C2C;
+  color: #737272;
   font-weight: 500;
   position: relative;
   transition: 0.3s;
+  font-size: 15px;
 }
 
 li a{
   text-decoration: none;
-}
-.nav-list li a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background: #D4A017;
-  transition: 0.3s;
-}
-
-.nav-list li a:hover {
-  width: 100%;
-}
-
-.nav-list li a:hover {
-  color: #D4A017;
-}
-
-a:active {
-  color: #D4A017;
 }
 
 .nav-list{
   position: relative;
 }
 
-.nav-arrow{
-  position: fixed;
-  pointer-events: none;
-  overflow: visible;
-  z-index: 1;
+.nav-list a{
+  transition: 0.3s ease;
 }
 
-#arrowPath{
-  fill: none;
-  stroke: #D4A017;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 6px #D4A017);
-  transition: stroke-dashoffset 0.4s ease;
-  opacity: 4s ease,
+.nav-list a.active-link{
+  font-weight: 500px;
+  color: #7a680d;
 }
 
-.contact-glow a{
+#dark .nav-list a.active-link{
+  font-weight: 500px;
+  color: #ac8b13;
+}
+#dark .contact-glow a{
   animation: contactPulse 1.2s infinite ease;
   animation-delay: 0s ease;
+}
+
+.contact-li a{
+    font-size: 15px;
 }
 
 #dark > ul > .contact-li  a{
   font-size: 20px;
   color:#5d5c5c;
+ 
+}
+
+.contact-glow a{
+  animation: contactPulsedark 1.2s infinite ease;
+  animation-delay: 0s ease;
 }
 .contact-li a{
   position: relative;
@@ -133,13 +118,13 @@ a:active {
 
 .s2{
   top: -12px;
-  right: -8px;
+  right: -0px;
   animation-delay: 0.7s;
 }
 
 .s3{
   top:30px;
-  right: 20px;
+  right: 10px;
   animation-delay: 1.4s;
 }
 
@@ -178,17 +163,72 @@ a:active {
   }
 }
 
+@keyframes contactPulsedark{
+  from{
+   color:black;
+    text-shadow: none;
+  }
+
+  to{
+    
+    color: #2a261a;
+    text-shadow:
+      0 0 8px #da9733,
+      0 0 18px #574615;
+  }
+}
+
 .hamburger {
   display: none;
   cursor: pointer;
   color: #D4A017;
 }
 
-@media (max-width: 900px) {
 
+
+.theme-btn {
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  border: 3px solid rgba(212,160,23,0.5);
+  background: transparent;
+  color: #D4A017;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  background: #D4A017;
+  color: black;
+}
+
+
+#dark .navbar{
+  transition: all 0.5s ease;
+   background: #181818;
+   border:1px solid #d49e177a;
+}
+
+#dark .nav-list a{
+   color: white;
+   
+}
+
+#dark .logo{
+  color: #D4A017;
+}
+
+
+@media (max-width: 1024px) {
+#dark .contact-li  a{
+  font-size: 20px;
+  color:#f8f5f5;
+}
+  
   .hamburger {
     display: block;
     z-index: 2000;
+    
   }
 
   .logo{
@@ -196,6 +236,7 @@ a:active {
     font-size: 27px;
   }
   .navbar{
+    justify-content: space-between;
     padding:18px 30px;
   }
 
@@ -229,36 +270,3 @@ a:active {
     display: none;
   }
 }
-
-.theme-btn {
-  font-size: 14px;
-  padding: 9px 12px;
-  border-radius: 20px;
-  border: 3px solid rgba(212,160,23,0.5);
-  background: transparent;
-  color: #D4A017;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.theme-btn:hover {
-  background: #D4A017;
-  color: black;
-}
-
-
-#dark .navbar{
-  transition: all 0.5s ease;
-   background: #181818;
-   border:1px solid #d49e177a;
-}
-
-#dark .nav-list a{
-   color: white;
-   
-}
-
-#dark .logo{
-  color: #D4A017;
-}
-
