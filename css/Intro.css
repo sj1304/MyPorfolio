@@ -2,21 +2,34 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    min-height:300px; 
-    margin:20px 200px; 
+    min-height:530px; 
+    margin:20px 140px 10px; 
     box-shadow: 2px 2px 6px grey;
     border:1px solid #d49e176a;
+    border-radius: 10px;
     transition: all 0.6s ease;
+      animation: opacity 0.5s ease;
 }
 
+.my_work_vis{
+    display: none;
+}
+@keyframes opacity {
+  from {
+    opacity: 0.2;
+  }
 
+  to {
+    opacity: 1;
+  }
+}
 .left_intro {
     background-color: #EFE7DA;
-    padding: 50px 20px 70px;
+    padding: 80px 5px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
    flex:1;
    transition: all 0.3s ease-out;
     color:#383636;
@@ -24,58 +37,71 @@
 }
 
 .profile_pic {
-     height:230px;
-     width: 240px;   
-    
+     height:240px;
+     width: 250px;   
+    margin-bottom: 17px;
   border-radius: 50%;  
     
-        object-fit: cover;  
+    object-fit: cover;  
 }
 
 .right_intro {
-    padding: 50px 30px 30px;
+    padding: 80px 20px 80px;
     display: flex;
-    justify-content: center;
+    align-items: left;
+    flex-wrap: wrap;
     flex-direction: column;
-    gap: 0px;
-    flex: 1.7;
+    gap: 6px;
+    flex: 1.6;
     min-width: 0;
     color:#313030;
     transition: all 0.5s ease-out;
 }
 
-
+h2{
+    font-size:27px;
+    animation-delay: 0.5s;
+}
+h1{
+    font-size: 33px;
+}
 .right_intro p {
-    font-size: 17px;
+    font-size: 20px;
  min-height: 4.0em; 
         animation-delay: 0.3s;
-    line-height: 1.5;
+    line-height: 1.8;
     word-wrap: break-word;
 }
 .buttons{
     padding: 30px 0px;
     display: flex;
-    gap: 15px;
+    
+    gap: 12px;
     border-radius: 10%;
      flex-wrap: wrap;
     
     }
-
+.button_grid{
+    display: flex;
+    gap:12px;
+}
 .buttons button a{
     text-decoration: none;
     color:white;
-    font-size: 17px;    
+    font-size: 18px;    
     
 }
 
 .buttons button{
     display:flex;
     gap:5px;
-    padding: 8px 15px;
+    padding: 9px 16px;
     animation-delay: 0.3s;
-    justify-content: center;
+    align-items: center;
 }
-
+.buttons button svg,div{
+ font-size: 20px;
+}
 .download{
     font-size: 16px;
     color: #333;
@@ -100,12 +126,7 @@
     animation: fadeIn 0.6s ease forwards;
 }
 
-h2{
-    animation-delay: 0.5s;
-}
-h1{
-    font-size: 30px;
-}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -217,100 +238,140 @@ h1{
     left: 215px;
 }
 
-@media(max-width:1025px)
+@media(max-width:1278px)
 {
    
     #intro{
-    margin:20px 10px;
+    margin:20px 60px;
     } 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    #intro {
+        flex-direction: column;
+        min-height: auto;
+        margin:0 0;
+        margin:0 20px;
+    }
+
     .left_intro {
-        padding: 30px 15px;
-        
+        padding:20px 20px 0px;
+        min-height:285px;
     }
 
     .right_intro {
-        padding: 30px 15px;
-    }
-
-    .right_intro p {
-        font-size: 16px;
-        min-height: auto;
+        padding: 10px 10px 10px;
+        flex: 1;
+        
+        min-height:220px;
     }
 
     .profile_pic {
-        width: 180px;
-        height: 180px;
-        min-height: 180px;
+        width: 200px;
+        height: 200px;
+        
+        margin-bottom: 0px;
     }
 
-    .terminal-box {
-         position: absolute;
-        top: 0;
-        left: 20px;
-        width: 160px;
-        padding: 10px 12px;
-    }
+    
 
     .terminal-container {
         position:absolute;
         display: flex;
         justify-content: center;
+        flex-shrink:1;
+        flex-wrap: wrap;
+    }
+    
+    h1{
+        font-size:23px;
+        margin-bottom:0px;
     }
 
-    .terminal-text {
-        font-size: 12px;
+h2 { margin-bottom:10px;
+        font-size: 23px;
+        text-align: center;
     }
 
-    .buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        padding: 20px 0;
-    }
+.dot{
+    display:none;
+}
 
-    .buttons button {
-        width: 100%;
-        padding: 12px 20px;
-    }
+.right_intro p{
+    font-size: 16px;
+        margin-block-start: 10px;
+            margin-block-end: 0px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+     flex-wrap: wrap;   
+    gap: 5px;
+  padding:5px 0px;
+
+    
+}
+.buttons button{
+    justify-content: center;
+}
+
+.button_grid{
+     display: flex;
+  gap:2px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.my_work_vis{
+    display: block;
+    font-size:15px;
+}
+
+.first, .second_grid{
+    flex:1;
+    padding:3px;
+
+}
+.buttons button a, .buttons button{
+    font-size: 15px;
+    font-weight: 500;
+    padding:3px 4px;
+    gap:2px;
+    border-radius: 5px;  
+}
+
+
 
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1085px) and (min-width:600px){
     #intro {
         flex-direction: column;
         min-height: auto;
         margin:0 0;
+        margin:5px 60px;
     }
 
     .left_intro {
         padding:20px 20px 10px;
-        gap:2px;
-        min-height:310px;
+        min-height:390px;
     }
 
     .right_intro {
-        padding: 5px 10px 0px;
+        padding: 10px 25px 10px;
         flex: 1;
-        gap:0px;
-        min-height:370px;
+        min-height:350px;
     }
 
     .profile_pic {
-        width: 220px;
-        height: 220px;
+        width: 270px;
+        height: 270px;
         min-height: 220px;
+        margin-bottom: 10px;
     }
 
-    .terminal-box {
-        position: absolute;
-        left: 190px;
-        
-        width: 100px;
-    }
+    
 
     .terminal-container {
         position:absolute;
@@ -320,11 +381,11 @@ h1{
     }
     
     h1{
-        font-size:23px;
+        font-size:28px;
     }
 
 h2 {
-        font-size: 1.3rem;
+        font-size: 28px;
         text-align: center;
     }
 
@@ -333,13 +394,25 @@ h2 {
 }
 
 .right_intro p{
-    font-size: 1.0rem;
+    margin-block-start: 3px;
+    font-size: 20px;
 }
 
 .buttons {
      flex-wrap: wrap;   
-        gap: 15px;
+    gap: 10px;
+    padding:10px;    
 }
+
+.buttons button a, .buttons button{
+    font-size: 15px;
+    font-weight: 500;
+    padding:5px 7px;
+    gap:2px;
+}
+
+
+
 }
 
 .name-section {
@@ -377,11 +450,10 @@ h2 {
   transform: rotate(45deg);
 }
 
-.mywork{
+#mywork{
     display: flex;
-    gap:10px;
+    gap:0px;
     justify-content: center;
-    width:150px;
     background-color: grey;
     transition: 0.2s;
 }
@@ -416,4 +488,38 @@ h2 {
 #dark .terminal-box{
     background-color: #e6e6e6;
     color:#181818;
+}
+
+
+/*terminal box*/
+@media (max-width:370px) and (min-width:320px) {
+    .terminal-box {
+        position: absolute;
+        left: 140px;   
+        width: 100px;
+    }
+}
+
+@media (max-width:445px) and (min-width:369px) {
+    .terminal-box {
+        position: absolute;
+        left: 180px;   
+        width: 110px;
+    }
+}
+
+@media (max-width:586px) and (min-width:444px) {
+    .terminal-box {
+        position: absolute;
+        left: 250px;   
+        width: 110px;
+    }
+}
+
+@media (max-width:800px) and (min-width:585px) {
+    .terminal-box {
+        position: absolute;
+        left: 300px;   
+        width: 130px;
+    }
 }
