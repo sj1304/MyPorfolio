@@ -1,6 +1,6 @@
 .projects {
   text-align: center;
-  padding: 10px 30px 60px;
+  padding: 40px 20px 50px;
   font-size: 27px;
   background: #fffefc57;
   border: 1px solid #d4a017;
@@ -31,11 +31,10 @@
 /* ROW */
 .flow-row {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
-  
+  padding: 0px 50px 0px;
 }
 
 /* BOX */
@@ -47,6 +46,7 @@
   padding: 5px;
   font-size: 20px;
   display: flex;
+  flex:1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -65,11 +65,11 @@
 
 /* ARROW */
 .curve-arrow {
-  width: 80px;
+  width: 50px;
 }
 
 .curve-arrow path {
-  stroke: #d4a017;
+  stroke: #f5b71a;
   stroke-width: 2;
   fill: none;
 
@@ -79,6 +79,9 @@
   animation: draw 1.5s ease forwards;
 }
 
+.projects h2{
+  font-size: 30px;
+}
 .projects .next-btn {
   margin-top: 30px;
   height: 55px;
@@ -114,18 +117,83 @@
  font-size: 16px;
  transition: all 0.4s ease;
 }
-
-@media (max-width: 768px){
-    .projects h2{
+.projects h2{
         font-size: 30px;
     }
-
+@media (max-width: 900px){
+    
+     .projects{
+      padding: 5px 20px 50px;
+     }
     .flow-box{
-       height:250px;
-        font-size: 18px;
+       width:400px;
+       min-height:180px;
+      justify-content: flex-start;
+       font-size: 18px;
     }
+     .flow-row{
      
+      flex-direction: column;
+     }
+
+     .tech-stack{
+      min-height:130px;
+     }
+     .button-area{
+      min-height: 130px;
+     }
     .prbuttons{
-  font-size: 13px;
+    min-height: 50px;
+  font-size: 12px;
+  justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+    
+}
+    .prbuttons button{
+          flex:1;
+          padding: 5px 2px;
+          width:150px;
+          font-size: 12px;
     }
+}
+
+@media (max-width:1400px){
+  .projects{
+    padding: 20px 0px 50px;
+  }
+
+  .flow-row{
+    padding:0 10px 0;
+  }
+
+  .curve-arrow{
+    width:20px;
+    
+  }
+}
+
+@media (max-width:500px){
+ .flow-box{
+       width: 300px;
+       min-height:180px;
+      justify-content: flex-start;
+       font-size: 18px;
+    }
+    .projects .next-btn{
+      height:40px;
+      width:40px;
+       padding:10px 60px 20px;
+       padding-left: 20px;
+       font-size: 20px;
+    } 
+}
+
+@media (max-width:380px){
+ .flow-box{
+       width: 230px;
+       min-height:180px;
+      justify-content: flex-start;
+       font-size: 18px;
+    } 
 }
