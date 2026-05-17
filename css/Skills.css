@@ -1,10 +1,10 @@
 
-#skills {
+#skills{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 80px;
-  padding: 30px 50px 170px;
+  padding: 30px 50px 180px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -44,7 +44,7 @@
   height: 100%;
   
   border-radius: 16px;
-  background: #fff;
+  background: #ece8e8;
   
   border: 2px solid rgba(212, 160, 23, 0.4);
 
@@ -121,10 +121,10 @@
   box-shadow: 0 8px 20px rgba(212, 160, 23, 0.6);
 }
 
-@media (max-width: 992px) {
+@media (max-width:1278px) and (min-width: 992px) {
   #skills {
-    padding: 60px 30px;
-    gap: 50px;
+    padding:60px 30px 150px;
+    gap: 70px;
   }
 
   .card-stack {
@@ -137,7 +137,7 @@
   #skills {
     flex-direction: column;
     align-items: center;
-    padding:50px 10px 150px;
+    padding:20px 20px 20px 40px;
     gap: 60px;
   }
 
@@ -167,8 +167,15 @@
 }
 
 @media (max-width: 400px) {
+#skills{
+  padding-left:30px;
+  padding-right: 0px;
+}
   .card-stack {
-    width: 220px;
-    height: 170px;
+    width: 170px;
+    height: 150px;
+  }
+  .card-wrapper{
+    gap:20px;
   }
 }
